@@ -1,0 +1,79 @@
+---
+import DarkModeToggle from "../components/DarkModeToggle.astro"
+---
+    <header class="fixed w-full bg-neutral-50 bg-opacity-50 backdrop-blur-sm flex flex-row items-center justify-between px-4 py-8 mx-0 my-auto z-[990]">
+        <a href="\" class="order-2 lg:order-1"><img src="public/logo.png" alt="Vida y Movimiento Logo"></a>
+        
+        <nav class="hidden order-2 lg:flex flex-row items-center justify-center gap-16 *:text-blue *:transition-colors *:duration-300 ">
+            <a href="#" class="hover:text-green">Tratamientos</a>
+            <a href="" class="hover:text-green">Sobre Nosotros</a>
+            <a href="" class="hover:text-green">Contacto</a>
+            <DarkModeToggle><DarkModeToggle />
+        </nav>
+    
+        <img src="public/menu.svg" alt="Menu icon" class="menu fill-blue w-6 cursor-pointer order-1 lg:hidden">
+    
+        <aside class="media-menu fixed flex flex-col justify-start h-screen bg-white top-0 left-0 w-1/2 p-4 gap-8 hidden">
+            <i class="close fa-solid fa-xmark text-3xl text-blue cursor-pointer"></i>
+        
+            <nav class="flex flex-col justify-center gap-4 *:text-blue *:transition-colors *:duration-300">
+                <a href="#" class="hover:text-green">Tratamientos</a>
+                <a href="" class="hover:text-green">Sobre Nosotros</a>
+                <a href="" class="hover:text-green">Contacto</a>
+                <DarkModeToggle><DarkModeToggle />
+            </nav>
+        </aside>
+    </header>
+
+    <style>
+        @keyframes slideright {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideleft {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .media-menu {
+            animation: slideright 0.3s both;
+        }
+
+        .media-menu.slide-out {
+            animation: slideleft 0.3s both;
+        }
+    </style>
+
+    <script src="https://kit.fontawesome.com/ebd46689b1.js" crossorigin="anonymous"></script>
+    <script>
+        const menu = document.querySelector('.menu');
+        const mediaMenu = document.querySelector('.media-menu');
+        const close = document.querySelector('.close');
+        const body = document.querySelector('body');
+
+        menu.addEventListener('click', () => {
+            mediaMenu.classList.remove('hidden', 'slide-out');
+            mediaMenu.classList.add('slide-in');
+            body.style.overflow = 'hidden';
+        });
+
+        close.addEventListener('click', () => {
+            mediaMenu.classList.remove('slide-in');
+            mediaMenu.classList.add('slide-out');
+            body.style.overflow = 'auto';
+            setTimeout(() => {
+                mediaMenu.classList.add('hidden');
+            }, 300);
+        });
+    </script>
+</body>
+</html>
