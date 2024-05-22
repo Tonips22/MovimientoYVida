@@ -1,5 +1,7 @@
 ---
 import DarkModeToggle from "../components/DarkModeToggle.astro"
+ const fontAwesomeSrc = import.meta.env.FONT_AWESOME_SRC;
+
 ---
     <header class="fixed w-full bg-neutral-50 bg-opacity-50 backdrop-blur-sm flex flex-row items-center justify-between px-4 py-8 mx-0 my-auto z-[990]">
         <a href="\" class="order-2 lg:order-1"><img src="public/logo.png" alt="Vida y Movimiento Logo"></a>
@@ -53,7 +55,7 @@ import DarkModeToggle from "../components/DarkModeToggle.astro"
         }
     </style>
 
-    <script src="https://kit.fontawesome.com/ebd46689b1.js" crossorigin="anonymous"></script>
+    <script src={fontAwesomeSrc} crossorigin="anonymous"></script>
     <script>
         const menu = document.querySelector('.menu');
         const mediaMenu = document.querySelector('.media-menu');
