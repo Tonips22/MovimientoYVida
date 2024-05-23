@@ -47,10 +47,17 @@
 
   const themeCheckboxes = document.querySelectorAll('.theme-checkbox');
   const html = document.querySelector('html');
+  const swiperNav = document.querySelector('.mySwiper');
+  let swiperCont = 0;
 
   themeCheckboxes.forEach(themeCheckbox => {
     themeCheckbox.addEventListener('change', () => {
       html.classList.toggle('dark');
+      swiperNav.style.setProperty('--swiper-navigation-color', 'var(--dark)');
+      swiperCont ++;
+      if (swiperCont % 2 === 0) {
+        swiperNav.style.setProperty('--swiper-navigation-color', 'var(--white)');
+      }
     });
   });
 </script>
