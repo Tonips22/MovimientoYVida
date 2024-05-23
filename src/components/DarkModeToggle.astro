@@ -41,3 +41,12 @@
   background-position: 100%;
 }
 </style>
+
+<script>
+    const themeCheckbox = document.querySelector('.theme-checkbox');
+    const html = document.querySelector('html');
+
+themeCheckbox.addEventListener('change', () => {
+  html.classList.toggle('dark');
+});
+</script>

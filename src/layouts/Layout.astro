@@ -15,7 +15,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class=" bg-white dark:bg-dark">
 		<slot />
 	</body>
 </html>
@@ -34,10 +34,12 @@ const { title } = Astro.props;
 		--green: #85c225ff;
 		--white: #ffffffff;
 
+		
 	}
 	
 	*, *::before, *::after {
 		box-sizing: border-box;
+		@apply transition-colors duration-300;
 	}
 
 	html {
@@ -53,7 +55,6 @@ const { title } = Astro.props;
 		padding: 0;
 		font-family: var(--secondaryFont);
 
-		background-color: var(--white);
 	}
 
 	h1, h2, h3, h4, h5, h6, p{

@@ -2,7 +2,6 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		darkMode: "class",
 		extend: {
 			colors: {
 				'dark': 'var(--dark)',
@@ -15,5 +14,6 @@ export default {
 		},
 	},
 	plugins: [],
+	darkMode: "class"
 }
 
