@@ -10,6 +10,11 @@ export default {
 				'blue': 'var(--blue)',
 				'green': 'var(--green)',
 				'white': 'var(--white)',
+			},
+
+			fontFamily: {
+				'primary': 'Raleway Variable, sans-serif',
+				'secondary': 'Roboto, sans-serif'
 			}
 		},
 	},
