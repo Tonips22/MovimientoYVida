@@ -1,3 +1,28 @@
-<!-- <div class=" h-[8000px] w-full flex flex-col items-center justify-center bg-gradient-to-b from-white to-gray">
-    <h1 class="text-white text-5xl">Hero</h1>
-</div> -->
+---
+import SliderContent from "../components/SliderContent.astro"
+---
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<swiper-container style="--swiper-navigation-color: var(--white); --swiper-pagination-color: var(--green)" class="mySwiper h-screen w-full" pagination="true" pagination-clickable="true" navigation="true" centered-slides="true" autoplay-delay="4000" autoplay-disable-on-interaction="true" rewind="true" id="interface">
+    
+    <SliderContent
+        title="Fisioterapia y"
+        titleBold="Rehabilitación"
+        description="Nos avalan más de 10 años de experiencia y nuestra formación continua simepre a la vanguardia para ofrecer a cada paciente lo que necesita."
+        image="slider1.jpg">
+    </SliderContent>
+
+    <SliderContent
+        title="Fisioterapia y"
+        titleBold="Rehabilitación"
+        description="Nos avalan más de 10 años de experiencia y nuestra formación continua simepre a la vanguardia para ofrecer a cada paciente lo que necesita."
+        image="slider2.jpg">
+    </SliderContent>
+</swiper-container>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
