@@ -2,12 +2,7 @@
 import SliderContent from "../components/SliderContent.astro"
 ---
 
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
-
-<swiper-container style="--swiper-navigation-color: var(--white); --swiper-pagination-color: var(--green)" class="mySwiper h-screen w-full" pagination="true" pagination-clickable="true" navigation="true" centered-slides="true" autoplay-delay="4000" autoplay-disable-on-interaction="true" rewind="true" id="interface">
+<swiper-container style="--swiper-navigation-color: var(--white); --swiper-pagination-color: var(--green)" class="mySwiper h-screen w-full" pagination="true" pagination-clickable="true" navigation="true" centered-slides="true" autoplay-delay="4000" autoplay-disable-on-interaction="true" rewind="true" id="hero">
     
     <SliderContent
         title="Fisioterapia y"
@@ -23,6 +18,85 @@ import SliderContent from "../components/SliderContent.astro"
         image="slider2.jpg">
     </SliderContent>
 </swiper-container>
+
+<section class="info flex flex-col items-center justify-center my-8 mx-auto gap-4 lg:flex-row lg:px-8">
+    <article class="card bg-blue w-full p-10 flex flex-col justify-start gap-4 min-h-[300px]">
+        <h2 class="text-white text-xl font-bold font-primary">Horario</h2>
+
+        <hr class=" text-lightGray opacity-20">
+
+        <div class=" flex flex-row items-center gap-4">
+            <i class="fa-regular fa-clock text-xl text-white"></i>
+
+            <div>
+                <h3 class="text-white text-lg">Lunes a Viernes - Mañanas</h3>
+    
+                <p class=" text-white opacity-50 font-light"> 08:00 - 14:00</p>
+            </div>
+        </div>
+
+        <hr class=" text-lightGray opacity-20">
+
+        <div class=" flex flex-row items-center gap-4">
+            <i class="fa-regular fa-clock text-xl text-white"></i>
+
+            <div>
+                <h3 class="text-white text-lg">Lunes a Viernes - Tardes</h3>
+    
+                <p class=" text-white font-light opacity-50"> 16:00 - 22:00</p>
+            </div>
+        </div>
+    </article>
+
+    <article class="card bg-dark w-full p-10 flex flex-col justify-start gap-4 min-h-[300px] ">
+
+        <h2 class="text-white text-xl font-bold">Dirección</h2>
+
+        <hr class=" text-lightGray opacity-20">
+
+        <div class=" flex flex-row items-center gap-4">
+            <i class="fa-solid fa-location-dot text-xl text-green"></i>
+
+            <div>
+                <h3 class="text-white text-lg">C/Alhamar 30</h3>
+    
+                <p class=" text-white opacity-50 font-light"> Nº37 4ºB</p>
+            </div>
+        </div>
+
+        <hr class=" text-lightGray opacity-20">
+
+        <div class=" flex flex-row items-center gap-4">
+            <i class="fa-solid fa-building text-xl text-green"></i>
+
+            <div>
+                <h3 class="text-white text-lg">Granada</h3>
+    
+                <p class=" text-white opacity-50 font-light">18004</p>
+            </div>
+        </div>
+    </article>
+
+    <article class="card bg-gray w-full p-10 flex flex-col justify-start gap-4 min-h-[300px] dark:bg-green">
+        <h2 class="text-white text-xl font-bold dark:text-dark">Contacto</h2>
+
+        <hr class=" text-lightGray opacity-20 dark:text-dark">
+
+        <div class=" flex flex-row items-center gap-4">
+            <i class="fa-solid fa-phone text-green dark:text-dark"></i>
+
+            <h3 class="text-white text-lg dark:text-gray"> <span class=" opacity-50">+34</span> 644 285 805</h3>
+        </div>
+
+        <hr class=" text-lightGray opacity-20 dark:text-dark">
+
+        <div class=" flex flex-row items-center gap-4">
+            <i class="fa-solid fa-envelope text-green dark:text-dark"></i>
+
+            <h3 class="text-white text-lg dark:text-gray">fisioterapiamovimientoyvida@gmail.com </h3>
+        </div>
+    </article>
+</section>
 
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
