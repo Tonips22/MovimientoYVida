@@ -1,0 +1,71 @@
+<section class=" flex flex-col lg:flex-row my-8">
+    <div class="flex flex-col justify-center gap-8 relative w-full lg:w-1/2 p-16 items-start">
+        <h1 class="text-4xl font-primary text-white font-bold text-start ">Fisioterapia y Rehabilitación</h1>
+
+        <p class=" text-white opacity-70 max-w-[60ch]"><span class="text-white font-bold">El aspecto más importante de nuestra clínica de fisioterapia es la salud.</span> Además de toda esta experiencia a nuestras espaldas, nunca dejamos de actualizarnos para poder ofrecer las más innovadoras técnicas de fisioterapia. Gracias a esa permanente formación, abarcamos un amplio abanico de herramientas terapéuticas para todo tipo de personas y patologías.</p>
+
+        <a href="tel:644980090" class="group bg-green text-white hover:bg-white hover:text-blue transition-colors duration-300 px-8 py-4 self-center"> <i class="fa-solid fa-phone text-white group-hover:text-blue"></i> Pedir Cita</a>
+
+        <div class="background"></div>
+    </div>
+    <div class="parallax-container hidden lg:flex w-1/2 object-cover overflow-hidden">
+        <img src="./about.jpg" alt="Imagen Sobre Nosotros" class="parallax-image w-full h-full object-cover">
+    </div>
+</section>
+
+<style>
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #262e9a, #5a659a, #262e9a);
+        background-size: 200% 200%;
+        animation: gradientAnimation 15s ease infinite;
+        z-index: -1;
+    }
+
+    html.dark .background{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #5a659a, rgb(46, 46, 73), #5a659a);
+        background-size: 200% 200%;
+        animation: gradientAnimation 15s ease infinite;
+        z-index: -1;
+
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('scroll', function() {
+        const parallaxImage = document.querySelector('.parallax-image') as HTMLImageElement;
+        const scrollPosition = window.scrollY;
+        console.log(scrollPosition);
+        // Ajusta este valor para cambiar la intensidad del efecto de escala
+        const scaleBase = 1; // Escala base cuando no hay desplazamiento
+        const scaleIncrease = 0.0005; // Cuánto aumenta la escala por pixel desplazado
+        if (scrollPosition < 1177) {
+            parallaxImage.style.transform = `scale(${scaleBase})`;
+        } else {
+            // Calcula el nuevo valor de escala basado en la posición de desplazamiento
+            const scale = scaleBase + (scrollPosition - 1177) * scaleIncrease;
+            parallaxImage.style.transform = `scale(${scale})`;
+        }
+    });
+</script>
