@@ -1,0 +1,97 @@
+---
+import Comment from '../components/Comment.astro'
+---
+
+<section class="min-h-[100dvh] flex flex-col gap-8 my-8 justify-center" id="resenas">
+    <div class=" self-center *:text-center flex flex-col items-center justify-center gap-2">
+        <h2 class="text-5xl font-primary font-bold text-blue dark:text-white">Reseñas de Google</h2>
+        <p class=" text-gray opacity-60 dark:text-white">¿Qué dicen nuestros clientes?</p>
+        <p class="text-gray dark:text-white">____</p>
+    </div>
+
+    <div class="comments"> 
+        <Comment owner="Auxi Jimenez" reseñas="16" text="Un gran profesional!! Llevo yendo varias veces y el trato es excepcional, gracias a Juanma puedo pasar las horas de estudio sin molestias en el cuello y espalda. Siempre intenta buscar un hueco adaptándose a las necesidades del paciente. Recomendable 100%!!!">
+        </Comment>
+
+        <Comment owner="Mar García Valdés" reseñas="24" text="Juanma  es mi fisioterapeuta de confianza. Un gran profesional y persona. Llevo muchos años llendo y muchos más que seguiré . Totalmente recomendable">
+        </Comment>
+
+        <Comment owner="Ángel Rodríguez" reseñas="13" text="Juanma es un profesional excelente, con un trato exquisito y unos conocimientos increíbles. Es encantador y siempre te busca la solución a tu problema. Facilidad para concretar citas y flexibilidad horaria. Llevo yendo varios años con el y siempre me ha dejado como nuevo y me ha solucionado mis lesiones. Lo recomiendo 100% y cuando se trata de salud hay que ir a los mejores y puedo decir que el es el mejor! Muy recomendable!!">
+        </Comment>
+
+        <Comment owner="José Gualda" reseñas="7" text="Puedo asegurar que he visitado algún que otro fisioterapeuta, y para mí, es el mejor hasta ahora. Gran profesional, con un trato magnífico y conocedor del oficio. Todo manual, nada de máquinas. Lo recomiendo sin duda alguna.">
+        </Comment>
+
+        <Comment owner="Ángel Aguilera Linares" reseñas="10" text="Profesional inmejorable, yo tengo una lesión grave en mis tobillos y no le confiaría a nadie que los tocara que no fuera con Juanma, di muchas vueltas asta encontrarlo, y no cambiare jamás. Muy recomendable no te equivocaras!!!">
+        </Comment>
+
+        <a target="_blank" href="https://www.google.es/maps/place/Cl%C3%ADnica+de+Fisioterapia+Movimiento+y+Vida/@37.1693441,-3.6072345,17z/data=!4m18!1m9!3m8!1s0xd71fc9796484dfb:0xa82bf728ffb78705!2sCl%C3%ADnica+de+Fisioterapia+Movimiento+y+Vida!8m2!3d37.168833!4d-3.6031627!9m1!1b1!16s%2Fg%2F11fzf09tz9!3m7!1s0xd71fc9796484dfb:0xa82bf728ffb78705!8m2!3d37.168833!4d-3.6031627!9m1!1b1!16s%2Fg%2F11fzf09tz9?entry=ttu">
+            <article class="w-full h-full vermas bg-blue dark:bg-green p-4 flex flex-row items-center justify-center gap-8">
+                <i class="fa-solid fa-arrow-up-right-from-square text-white text-4xl"></i>
+            </article>
+        </a>
+    </div>
+
+    <div class=" flex flex-row items-center justify-center gap-8 *:size-[42px] *:p-4 *:bg-blue *:rounded-full *:text-white dark:*:bg-green dark:*:text-gray ">
+        <button id="prevButton" class="grid content-center hover:scale-110 transition-all duration-300"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="nextButton" class="grid content-center hover:scale-110 transition-all duration-300"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+</section>
+
+
+<style>
+    .comments{
+        display: flex;
+        flex-direction: row;
+        scroll-snap-type: x mandatory;
+        overflow-x: auto;
+        gap: 16px;
+        scrollbar-width: none;
+        padding: 16px;
+    
+    }
+
+    .vermas{
+        scroll-snap-align: center;
+        min-width: 420px;
+        min-height: 220px;
+    }
+
+    @media (width <= 768px) {
+        .vermas{
+            min-width: 320px;
+            min-height: 180px;
+        }
+    }
+</style>
+
+<script>
+    const commentsContainer = document.querySelector('.comments');
+    const nextButton = document.getElementById('nextButton') as HTMLButtonElement;
+    const prevButton = document.getElementById('prevButton') as HTMLButtonElement;
+
+    function updateButtonStyles() {
+        // Deshabilita el botón "Anterior" si estamos al principio
+        prevButton.style.opacity = commentsContainer.scrollLeft > 0 ? "1" : "0.5";
+        prevButton.disabled = commentsContainer.scrollLeft <= 0;
+
+        // Deshabilita el botón "Siguiente" si estamos al final
+        const atEnd = commentsContainer.scrollLeft + commentsContainer.offsetWidth >= commentsContainer.scrollWidth;
+        nextButton.style.opacity = atEnd ? "0.5" : "1";
+        nextButton.disabled = atEnd;
+    }
+
+    nextButton.addEventListener('click', () => {
+        commentsContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        setTimeout(updateButtonStyles, 300); // Espera a que termine el scroll
+    });
+
+    prevButton.addEventListener('click', () => {
+        commentsContainer.scrollBy({ left: -300, behavior: 'smooth' });
+        setTimeout(updateButtonStyles, 300); // Espera a que termine el scroll
+    });
+
+    // Actualiza los estilos de los botones al cargar la página y después de cada scroll
+    document.addEventListener('DOMContentLoaded', updateButtonStyles);
+    commentsContainer.addEventListener('scroll', updateButtonStyles);
+</script>
