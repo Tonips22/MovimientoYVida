@@ -1,0 +1,37 @@
+---
+interface Props {
+    owner: string;
+    reseñas: string;
+    text: string;
+
+}
+const { owner, reseñas, text } = Astro.props;
+---
+
+<article class="bg-neutral-100 dark:bg-neutral-700 p-4 flex flex-col justify-start gap-8">
+    <header class="flex flex-row justify-start gap-8">
+        <i class="fa-solid fa-quote-right text-blue dark:text-green text-3xl"></i>
+
+        <div class=" *:text-gray dark:*:text-white">
+            <h3 class=" font-bold">{owner}</h3>
+            <p class="text-[12px] opacity-80">{reseñas} reseñas</p>
+        </div>
+    </header>
+
+    <p class="max-w-[60ch] text-[15px] text-gray dark:text-white">{text}</p>
+</article>
+
+<style>
+    article{
+        scroll-snap-align: center;
+        min-width: 420px;
+        min-height: 220px;
+    }
+
+    @media (width <= 768px) {
+        article{
+            min-width: 320px;
+            min-height: 180px;
+        }
+    }
+</style>
