@@ -1,0 +1,129 @@
+<footer class=" flex flex-col justify-center bg-blue dark:bg-green gap-8 pt-8 px-8">
+    <main class=" flex flex-col lg:flex-row items-start justify-center gap-12">
+        <section class="flex flex-col md:flex-row items-start lg:items-center justify-center gap-16 w-full">
+            <div class=" text-white flex flex-col gap-4">
+                <header>
+                    <h2 class=" text-white dark:text-gray font-bold text-2xl">Enlaces</h2>
+                </header>
+    
+                <main class="flex flex-col justify-center items-start gap-2">
+                    <a href="#tratamientos" class="enlace">Tratamientos</a>
+                    <a href="" class="enlace">Sobre Nosotros</a>
+                    <a href="#resenas" class="enlace">Reseñas</a>
+                </main>
+            </div>
+
+            <div class=" text-white flex flex-col gap-4">
+                <header>
+                    <h2 class=" text-white dark:text-gray font-bold text-2xl">Contacto</h2>
+                </header>
+    
+                <main class="flex flex-col justify-center items-start gap-2">
+                    <a href="tel:644285805" class="enlace">
+                        <i class="fa-solid fa-phone"></i>
+                        <p> <span>+34</span> 644 285 805</p>
+                    </a>
+
+                    <a href="mailto:fisioterapiamovimientoyvida@gmail.com" class="enlace">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p>fisioterapiamovimientoyvida@gmail.com</p>
+                    </a>
+
+                    <a target="_blank" href="https://www.google.es/maps/place/Cl%C3%ADnica+de+Fisioterapia+Movimiento+y+Vida/@37.1688372,-3.6057376,17z/data=!3m1!4b1!4m6!3m5!1s0xd71fc9796484dfb:0xa82bf728ffb78705!8m2!3d37.168833!4d-3.6031627!16s%2Fg%2F11fzf09tz9?entry=ttu" class="enlace">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>C/Alhamar 37, 4ºB</p>
+                    </a>
+                </main>
+            </div>
+
+            <div class=" text-white flex flex-col gap-4">
+                <header>
+                    <h2 class=" text-white dark:text-gray font-bold text-2xl">Info</h2>
+                </header>
+    
+                <main class="flex flex-col justify-center items-start gap-2">
+                    <a href="" class="enlace">Política de Privacidad</a>
+                    <a href="" class="enlace">Aviso Legal</a>
+                    <a href="" class="enlace">Políticas de Enlaces</a>
+                </main>
+            </div>
+        </section>
+
+        <section class="card bg-blue dark:bg-green w-full md:w-1/2 flex flex-col justify-start gap-4">
+            <h2 class=" text-white dark:text-gray font-bold text-2xl">Horario</h2>
+    
+            <hr class=" text-white opacity-20 dark:text-gray">
+    
+            <div class=" flex flex-row items-center gap-4">
+                <i class="fa-regular fa-clock text-md text-white dark:text-gray"></i>
+    
+                <div>
+                    <h3 class="text-white text-sm dark:text-gray">Lunes a Viernes - Mañanas</h3>
+        
+                    <p class=" text-white opacity-50 font-light text-sm dark:text-gray"> 08:00 - 14:00</p>
+                </div>
+            </div>
+    
+            <hr class=" text-white opacity-20 dark:text-gray">
+    
+            <div class=" flex flex-row items-center gap-4">
+                <i class="fa-regular fa-clock text-md text-white dark:text-gray"></i>
+    
+                <div>
+                    <h3 class="text-white text-sm dark:text-gray">Lunes a Viernes - Tardes</h3>
+        
+                    <p class=" text-white font-light opacity-50 text-sm dark:text-gray"> 16:00 - 22:00</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</footer>
+
+<style>
+
+    .enlace{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        color: var(--white);
+        opacity: 0.8;
+        font-size: 14px;
+        transition: color 0.3s ease;
+    }
+
+    .enlace p{
+        color: var(--white);
+    }
+
+    .enlace p span{
+        opacity: 0.8;
+    }
+
+    .enlace:hover, .enlace:hover p, .enlace:hover p span, .enlace:hover i{
+        color: var(--green);
+    }
+
+    html.dark .enlace, html.dark .enlace p, html.dark .enlace p span, html.dark .enlace i{
+        color: var(--gray);
+    }
+
+    html.dark .enlace:hover, html.dark .enlace:hover p, html.dark .enlace:hover p span, html.dark .enlace:hover i{
+        color: var(--white);
+    }
+</style>
+
+<script>
+    const footer = document.querySelector('footer') as HTMLElement;
+    
+    const date = new Date();
+    const year = date.getFullYear();
+    console.log(year);
+
+    const text = `<p class="text-center text-white dark:text-gray p-4"> <span class="text-green dark:text-gray font-bold">&copy; ${year} Movimiento Y Vida.</span> Todos los derechos reservados.</p>`
+
+    footer.insertAdjacentHTML('beforeend', text)
+    
+</script>
