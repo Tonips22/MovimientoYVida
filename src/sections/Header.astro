@@ -71,21 +71,30 @@ const fontAwesomeId = import.meta.env.FONT_AWESOME_ID;
         const mediaMenu = document.querySelector('.media-menu');
         const close = document.querySelector('.close');
         const body = document.querySelector('body');
-
+    
         menu.addEventListener('click', () => {
             mediaMenu.classList.remove('hidden', 'slide-out');
             mediaMenu.classList.add('slide-in');
             body.style.overflow = 'hidden';
         });
-
-        close.addEventListener('click', () => {
+    
+        close.addEventListener('click', closeMenu);
+    
+        document.addEventListener('click', (event) => {
+            // Verifica si el clic fue fuera del menú y no es el botón de menú
+            if (!mediaMenu.contains(event.target as Node) && !menu.contains(event.target as Node)) {
+                closeMenu();
+            }
+        });
+    
+        function closeMenu() {
             mediaMenu.classList.remove('slide-in');
             mediaMenu.classList.add('slide-out');
             body.style.overflow = 'auto';
             setTimeout(() => {
                 mediaMenu.classList.add('hidden');
             }, 300);
-        });
+        }
     </script>
 </body>
 </html>
