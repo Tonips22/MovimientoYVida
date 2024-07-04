@@ -69,6 +69,13 @@ import Comment from '../components/Comment.astro'
     const commentsContainer = document.querySelector('.comments');
     const nextButton = document.getElementById('nextButton') as HTMLButtonElement;
     const prevButton = document.getElementById('prevButton') as HTMLButtonElement;
+    const displacement = ()=>{
+        if(window.innerWidth <= 768){
+            return 330;
+        }else{
+            return 300;
+        }
+    }
 
     function updateButtonStyles() {
         // Deshabilita el botón "Anterior" si estamos al principio
@@ -82,12 +89,12 @@ import Comment from '../components/Comment.astro'
     }
 
     nextButton.addEventListener('click', () => {
-        commentsContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        commentsContainer.scrollBy({ left: displacement(), behavior: 'smooth' });
         setTimeout(updateButtonStyles, 300); // Espera a que termine el scroll
     });
 
     prevButton.addEventListener('click', () => {
-        commentsContainer.scrollBy({ left: -300, behavior: 'smooth' });
+        commentsContainer.scrollBy({ left: -displacement(), behavior: 'smooth' });
         setTimeout(updateButtonStyles, 300); // Espera a que termine el scroll
     });
 
